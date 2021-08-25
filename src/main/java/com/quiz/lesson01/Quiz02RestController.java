@@ -23,24 +23,28 @@ public class Quiz02RestController {
 		map.put("time", 131);
 		map.put("title", "기생충");
 		list.add(map);
+		
 		map = new HashMap<>();
 		map.put("rate", 0);
 		map.put("director", "로베르토 베니니");
 		map.put("time", 116);
 		map.put("title", "인생은 아름다워");
 		list.add(map);
+		
 		map = new HashMap<>();
 		map.put("rate", 12);
 		map.put("director", "크리스토퍼 놀란");
 		map.put("time", 147);
 		map.put("title", "인셉션");
 		list.add(map);
+		
 		map = new HashMap<>();
 		map.put("rate", 19);
 		map.put("director", "윤종빈");
 		map.put("time", 133);
 		map.put("title", "범죄와의 전쟁 : 나쁜놈들 전성시대");
 		list.add(map);
+		
 		map = new HashMap<>();
 		map.put("rate", 15);
 		map.put("director", "프란시스 로렌스");
