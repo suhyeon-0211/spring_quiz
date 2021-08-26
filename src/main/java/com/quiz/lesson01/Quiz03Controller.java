@@ -8,6 +8,6 @@ public class Quiz03Controller {
 	
 	@RequestMapping("/lesson01/quiz03/1")
 	public String quiz03() {
-		return "lesson01/quiz03";
+		return "lesson01/quiz03_1";
 	}
 }
