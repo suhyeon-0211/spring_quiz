@@ -63,4 +63,14 @@ public class RealEstateRestController {
 		int rowCount = realEstateBO.addRealEstateAsField(realtorId, "썅떼빌리버 오피스텔 814호", 45, "월세", 100000, 120);
 		return "입력 성공 : " + rowCount;
 	}
+	
+	// 요청 URL : http://localhost/lesson03/quiz03/1?id=8&...
+	@RequestMapping("quiz03/1")
+	public String quiz03_1(
+			@RequestParam("id") int id,
+			@RequestParam(value="type", defaultValue = "전세") String type,
+			@RequestParam(value="price", defaultValue="70000") int price) {
+		int rowCount = realEstateBO.updateRealEstate(id, type, price);
+		return "수정 성공 : " + rowCount;
+	}
 }
