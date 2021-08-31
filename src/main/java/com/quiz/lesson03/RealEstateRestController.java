@@ -73,4 +73,12 @@ public class RealEstateRestController {
 		int rowCount = realEstateBO.updateRealEstate(id, type, price);
 		return "수정 성공 : " + rowCount;
 	}
+	
+	// 요청 URL : http://localhost/lesson03/quiz04/1?id=21
+	@RequestMapping("quiz04/1")
+	public String quiz04_1(
+			@RequestParam("id") int id) {
+		int rowCount = realEstateBO.deleteRealEstateById(id);
+		return "삭제 성공 : " + rowCount;
+	}
 }
