@@ -5,11 +5,14 @@ import java.util.Date;
 public class Seller {
 	private int id;
 	private String nickname;
-	private String profileImage;
+	private String profileImage="https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif";
 	private double temperature;
 	private Date createdAt;
 	private Date updatedAt;
 	
+//	public Seller() {
+//		this.profileImage="https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif";
+//	}
 	public int getId() {
 		return id;
 	}

@@ -18,17 +18,17 @@ public class SellerBO {
 	
 	public Seller getLastSeller() {
 		Seller seller = sellerDAO.selectLastSeller();
-		if (seller.getProfileImage() == null) {
-			seller.setProfileImage("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif");
-		}
+//		if (seller.getProfileImage() == null) {
+//			seller.setProfileImage("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif");
+//		}
 		return seller;
 	}
 	
 	public Seller getSellerById(int id) {
 		Seller seller = sellerDAO.selectSellerById(id);
-		if (seller.getProfileImage() == null) {
-			seller.setProfileImage("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif");
-		}
+//		if (seller.getProfileImage() == null) {
+//			seller.setProfileImage("https://3.bp.blogspot.com/-ZKBbW7TmQD4/U6P_DTbE2MI/AAAAAAAADjg/wdhBRyLv5e8/s1600/noimg.gif");
+//		}
 		return seller;
 	}
 }
