@@ -13,6 +13,7 @@ public class SellerBO {
 	private SellerDAO sellerDAO;
 	
 	public void addSeller(String nickname, String profileImage, double temperature) {
+		profileImage = (profileImage == "") ? null : profileImage;
 		sellerDAO.insertSeller(nickname, profileImage, temperature);
 	}
 	
