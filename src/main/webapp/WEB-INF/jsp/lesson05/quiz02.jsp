@@ -42,7 +42,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<c:forEach items="${membership}" var="member" varStatus="status">
+				<c:forEach items="${membership}" var="member">
 					<tr>
 						<td>${member.name}</td>
 						<td>${member.phoneNumber}</td>
