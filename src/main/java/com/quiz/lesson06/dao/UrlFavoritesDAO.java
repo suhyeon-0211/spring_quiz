@@ -11,4 +11,5 @@ public interface UrlFavoritesDAO {
 	public void insertUrlFavorites(UrlFavorites urlFavorites);
 	public List<UrlFavorites> selectUrlFavorites();
 	public boolean existUrlFavoritesByUrl(String url);
+	public int deleteUrlFavoritesById(int id);
 }

@@ -60,4 +60,14 @@ public class Lesson06Quiz01Controller {
 		result.put("isDuplication", urlFavoritesBO.existUrlFavoritesByUrl(url));
 		return result;
 	}
+	
+	@ResponseBody
+	@RequestMapping("/quiz02/delete_url_favorite")
+	public Map<String, Integer> isDeleted(
+			@RequestParam("id") int id) {
+		
+		Map<String, Integer> result = new HashMap<>();
+		result.put("deleted", urlFavoritesBO.deleteUrlFavoritesById(id));
+		return result;
+	}
 }

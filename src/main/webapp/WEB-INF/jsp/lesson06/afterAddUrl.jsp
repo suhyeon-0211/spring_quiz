@@ -31,7 +31,7 @@
 						<td id="id">${favorite.id}</td>
 						<td id="name">${favorite.name}</td>
 						<td id="url">${favorite.url}</td>
-						<td><button type="button" class="btn btn-danger" class="delBtn">삭제</button></td>
+						<td><button type="button" class="btn btn-danger delBtn">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
@@ -41,8 +41,26 @@
 	<script>
 		$(document).ready(function() {
 			$('.delBtn').on('click', function() {
-				let id = $('#id').val().trim();
-				console.log(id);
+				let tr = $(this).parent().parent();
+				let td = tr.children();
+				let id = td.eq(0).text();
+				console.log(td.eq(0).text());
+				
+				$.ajax({
+					type : "GET"
+					, url : "/lesson06/quiz02/delete_url_favorite"
+					, data : {"id" : id}
+					, success : function(data) {
+						if(data.deleted > 0) {
+							location.reload();
+						} else {
+							alert("삭제할 수 없습니다.");
+						}
+					}
+					, error : function(e) {
+						alert("에러 " + e);
+					}
+				});
 			});
 		});
 	</script>
