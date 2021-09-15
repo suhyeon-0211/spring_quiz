@@ -10,4 +10,5 @@ import com.quiz.lesson06.model.UrlFavorites;
 public interface UrlFavoritesDAO {
 	public void insertUrlFavorites(UrlFavorites urlFavorites);
 	public List<UrlFavorites> selectUrlFavorites();
+	public boolean existUrlFavoritesByUrl(String url);
 }

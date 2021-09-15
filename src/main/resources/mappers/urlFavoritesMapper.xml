@@ -29,4 +29,13 @@
 		FROM
 			`url_favorites`
 	</select>
+	
+	<select id="existUrlFavoritesByUrl" resultType="boolean">
+		SELECT
+			count(1)
+		FROM
+			`url_favorites`
+		WHERE
+			`url` = #{url}
+	</select>
 </mapper>

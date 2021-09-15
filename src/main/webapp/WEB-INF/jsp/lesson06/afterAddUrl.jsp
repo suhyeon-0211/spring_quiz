@@ -22,18 +22,29 @@
 					<th>No.</th>
 					<th>이름</th>
 					<th>주소</th>
+					<th></th>
 				</tr>
 			</thead>
 			<tbody>
 				<c:forEach items="${urlFavorites}" var="favorite" varStatus="status">
 					<tr>
-						<td>${status.count}</td>
-						<td>${favorite.name}</td>
-						<td>${favorite.url}</td>
+						<td id="id">${favorite.id}</td>
+						<td id="name">${favorite.name}</td>
+						<td id="url">${favorite.url}</td>
+						<td><button type="button" class="btn btn-danger" class="delBtn">삭제</button></td>
 					</tr>
 				</c:forEach>
 			</tbody>
 		</table>
 	</div>
+	
+	<script>
+		$(document).ready(function() {
+			$('.delBtn').on('click', function() {
+				let id = $('#id').val().trim();
+				console.log(id);
+			});
+		});
+	</script>
 </body>
 </html>

@@ -21,7 +21,11 @@
 		</div>
 		<div class="form-group">
 			<label for="url">주소</label>
-			<input type="text" class="form-control" id="url" name="url">
+			<div class="d-flex justify-content-between">
+				<input type="text" class="form-control col-11" id="url" name="url">
+				<button type="button" class="btn btn-primary" id="isDuplicationBtn">중복확인</button>
+			</div>
+			<div id="urlStatusArea"></div>
 		</div>
 		<button type="button" class="btn btn-success w-100" id="addBtn">추가</button>
 	</div>
@@ -39,7 +43,7 @@
 					alert("주소를 입력하세요.");
 					return;
 				}
-				if (!url.includes("http") && !url.includes("https")) {
+				if (!url.startsWith("http") && !url.startsWith("https")) {
 					alert("주소를 다시 확인하여 입력하세요.");
 					return;
 				}
@@ -51,9 +55,41 @@
 						'name' : name
 						, 'url' : url
 					}
+					// ,dataType: 'json' // response body에 내려질 데이터 타입
 					, success : function(data) {
-						alert(data);
-						location.href = "/lesson06/quiz01/after_add_url";
+						// AJAX 통신후 response body는 String 또는 JSON이 리턴되어야 한다.
+						if (data.result == 'success') {
+							location.href = "/lesson06/quiz01/after_add_url";	
+						} else {
+							alert("실패했습니다.");
+						}
+						
+					}
+					, error : function(e) {
+						alert("에러 " + e);
+					}
+				});
+			});
+			
+			$('#isDuplicationBtn').on('click', function() {
+				let url = $('input[name=url]').val().trim();
+				$('#urlStatusArea').empty();
+				
+				if (url == '') {
+					$('#urlStatusArea').append("<small class='text-danger'>url을 입력해주세요</small>");
+					return;
+				}
+				
+				$.ajax({
+					type : 'GET'
+					, url : '/lesson06/quiz02/is_duplication'
+					, data : {'url' : url}
+					, success : function(data) {
+						if (data.isDuplication) {
+							$('#urlStatusArea').append("<small class='text-danger'>중복된 url입니다</small>");
+						} else {
+							$('#urlStatusArea').append("<small class='text-success'>저장 가능한 url입니다.</small>");
+						}
 					}
 					, error : function(e) {
 						alert("에러 " + e);

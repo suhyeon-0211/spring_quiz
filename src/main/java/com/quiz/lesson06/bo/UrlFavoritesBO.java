@@ -21,4 +21,8 @@ public class UrlFavoritesBO {
 	public List<UrlFavorites> getUrlFavorites() {
 		return urlFavoritesDAO.selectUrlFavorites();
 	}
+	
+	public boolean existUrlFavoritesByUrl(String url) {
+		return urlFavoritesDAO.existUrlFavoritesByUrl(url);
+	}
 }
